@@ -284,7 +284,7 @@ static ffi_type *a2_typeForSignature(const char *argumentType, void *(^allocate)
 	NSMethodSignature *blockSignature = a2_blockGetSignature(block);
 	NSCAssert1(blockSignature, @"Incompatible block: %@", block);
 	
-	if ((self = [super init])) {
+	if ((self = [super init]) && blockSignature) {
 		NSMutableArray *allocations = [NSMutableArray new];
 
 		void *(^allocate)(size_t) = ^(size_t howmuch){
@@ -313,7 +313,7 @@ static ffi_type *a2_typeForSignature(const char *argumentType, void *(^allocate)
 		}
 
 		ffi_cif cif;
-		ffi_status status = ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argCount, returnType, methodArgs);
+		ffi_status status __attribute__((unused)) = ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argCount, returnType, methodArgs);
 		NSCAssert2(status == FFI_OK, @"%@ -  Unable to create function interface for block: %@", [self class], [self block]);
 
 		_block = (void *) Block_copy((__bridge void *) block);

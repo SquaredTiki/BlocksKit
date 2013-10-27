@@ -13,7 +13,8 @@
 Protocol *a2_dataSourceProtocol(Class cls);
 Protocol *a2_delegateProtocol(Class cls);
 
-static BOOL a2_methodSignaturesCompatible(NSMethodSignature *methodSignature, NSMethodSignature *blockSignature)
+
+static BOOL __attribute__((unused)) a2_methodSignaturesCompatible(NSMethodSignature *methodSignature, NSMethodSignature *blockSignature)
 {
 	if (methodSignature.methodReturnType[0] != blockSignature.methodReturnType[0])
 		return NO;

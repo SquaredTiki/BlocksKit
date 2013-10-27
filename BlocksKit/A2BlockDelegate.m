@@ -166,11 +166,11 @@ static inline SEL prefixedSelector(SEL selector) {
 
 
 		const char *getterTypes = "@@:";
-		BOOL success = class_addMethod(self, getter, getterImplementation, getterTypes);
+		BOOL success __attribute__((unused)) = class_addMethod(self, getter, getterImplementation, getterTypes);
 		NSCAssert1(success, @"Could not implement getter for \"%@\" property.", propertyName);
 
 		const char *setterTypes = "v@:@";
-		success = class_addMethod(self, setter, setterImplementation, setterTypes);
+		success  = class_addMethod(self, setter, setterImplementation, setterTypes);
 		NSCAssert1(success, @"Could not implement setter for \"%@\" property.", propertyName);
 	}];
 }
