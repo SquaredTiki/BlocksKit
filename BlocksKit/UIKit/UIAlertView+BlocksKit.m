@@ -148,7 +148,7 @@
 }
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message {
-	return [self initWithTitle:title message:message delegate:self.dynamicDelegate cancelButtonTitle:nil otherButtonTitles:nil];
+	return [self initWithTitle:title message:message delegate:self.dynamicDelegate cancelButtonTitle:@"Understood" otherButtonTitles:nil];
 }
 
 #pragma Actions
