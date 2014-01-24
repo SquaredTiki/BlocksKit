@@ -71,6 +71,9 @@
  */
 - (id)initWithTitle:(NSString *)title message:(NSString *)message;
 
++ (id)alertViewWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle;
+- (id)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle;
+
 ///-----------------------------------
 /// @name Adding buttons
 ///-----------------------------------

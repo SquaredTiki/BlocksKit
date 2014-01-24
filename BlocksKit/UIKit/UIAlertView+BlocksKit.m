@@ -148,7 +148,16 @@
 }
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message {
-	return [self initWithTitle:title message:message delegate:self.dynamicDelegate cancelButtonTitle:@"Understood" otherButtonTitles:nil];
+	return [self initWithTitle:title message:message delegate:self.dynamicDelegate cancelButtonTitle:nil otherButtonTitles:nil];
+}
+
+
++ (id)alertViewWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle {
+	return [[[self class] alloc] initWithTitle:title message:message cancelButtonTitle:cancelButtonTitle];
+}
+
+- (id)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle {
+	return [self initWithTitle:title message:message delegate:self.dynamicDelegate cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
 }
 
 #pragma Actions
